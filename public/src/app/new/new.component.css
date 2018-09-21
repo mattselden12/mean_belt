@@ -16,12 +16,6 @@ form{
     margin-left: 1%;
 }
 
-p{
-    color: purple;
-    margin: 0;
-    margin-left: 2%;
-}
-
 .col-form-label{
     color: rgb(119, 118, 118);
     font-weight: bolder;
@@ -39,4 +33,23 @@ p{
 
 .form-control{
     width: 40%;
+}
+
+
+.ng-invalid{
+    color: red;
+}
+
+.ng-valid{
+    color: green;
+}
+
+p{
+    color: red;
+}
+
+.backend{
+    color: purple;
+    margin: 0;
+    margin-left: 2%;
 }

@@ -60,6 +60,7 @@ export class UpdateComponent implements OnInit {
   }
 
   resetButton(){
+    console.log("reset");
     let tempobj = this.origprod;
     this.myprod = tempobj;
   }

@@ -40,3 +40,21 @@ p{
 .form-control{
     width: 40%;
 }
+
+.ng-invalid{
+    color: red;
+}
+
+.ng-valid{
+    color: green;
+}
+
+p{
+    color: red;
+}
+
+.backend{
+    color: purple;
+    margin: 0;
+    margin-left: 2%;
+}

@@ -1,28 +1,57 @@
 <div class="component">
   <h1>Update Product</h1>
-  <form>
     <div class="errors">
-      <p *ngFor="let error of errors">{{ error }}</p>
-    </div>
+      <p class="backend" *ngFor="let error of errors">{{ error }}</p>
+      <div *ngIf="prodname.errors">
+        <p *ngIf="prodname.errors.required">
+          Products must contain a Name.
+        </p>
+        <p *ngIf="prodname.errors.minlength">
+          Product Names must be at least 3 characters in length.
+        </p>
+      </div>
+      <div *ngIf="prodquantity.errors">
+        <p *ngIf="prodquantity.errors.required">
+          Products must contain a Qty.
+        </p>
+        <p *ngIf="prodquantity.errors.min">
+          Products cannot have a negative Qty.
+        </p>
+      </div>
+  <form>
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Name</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="name" [(ngModel)]="myprod.prodname">
+        <input type="text" class="form-control" name="prodname" 
+        required 
+        minlength="3" 
+        [(ngModel)]="myprod.prodname" 
+        #prodname="ngModel"
+        />
       </div>
     </div>
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Qty</label>
       <div class="col-sm-10">
-        <input type="number" class="form-control" name="quantity" [(ngModel)]="myprod.prodquantity">
+        <input type="number" class="form-control" name="prodquantity" 
+        required min="0" 
+        [(ngModel)]="myprod.prodquantity" 
+        #prodquantity="ngModel"
+        />
       </div>
     </div>
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Price</label>
       <div class="col-sm-10">
-        <input type="number" class="form-control" name="price" [(ngModel)]="myprod.prodprice">
+        <input type="number" class="form-control" name="prodprice" 
+        required 
+        min="0" 
+        [(ngModel)]="myprod.prodprice"
+        #prodprice="ngModel"
+        />
       </div>
     </div>
     <button (click)="resetButton()" class="btn btn-secondary">RESET</button>
-    <button (click)="updateButton()" class="btn btn-success">UPDATE</button>
+    <button (click)="updateButton()" *ngIf="prodname.valid && prodquantity.valid && prodprice.valid" class="btn btn-success">UPDATE</button>
   </form>
 </div>
