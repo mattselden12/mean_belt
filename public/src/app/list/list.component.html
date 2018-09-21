@@ -1,0 +1,27 @@
+<div class="component">
+  <h1>Product List</h1>
+  <button [routerLink]="['/products/new']" class="btn btn-addnew">Add New Product</button>
+  <table class="table table-bordered">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Qty</th>
+        <th scope="col">Price</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>123456789</td>
+        <td>Coding Dojo Hovering Keyboard</td>
+        <td>439</td>
+        <td>$99.98</td>
+        <td>
+          <button [routerLink]="['/products/1/edit']" type="button" class="btn btn-edit">Edit</button>
+          <button [routerLink]="['/products/1']" type="button" class="btn btn-details">Details</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,42 @@
+.component{
+    margin-top: 3%;
+    border: 2px solid black;
+    padding: 1%;
+}
+
+/* JUST THIS ONE */
+
+.component h1{
+    margin: 0;
+    margin-bottom: 2%;
+    font-weight: bolder;
+}
+
+form{
+    margin-left: 1%;
+}
+
+p{
+    color: purple;
+    margin: 0;
+    margin-left: 2%;
+}
+
+.col-form-label{
+    color: rgb(119, 118, 118);
+    font-weight: bolder;
+    font-size: 24px;
+}
+
+.btn-secondary{
+    margin-left: 17%;
+    margin-right: 3%;
+}
+
+.errors{
+    margin-bottom: 2%;
+}
+
+.form-control{
+    width: 40%;
+}
