@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'app-list',
@@ -6,10 +7,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
+  allProducts: any[];
 
-  constructor() { }
+  constructor(
+    private _httpService: HttpService
+  ) { }
 
   ngOnInit() {
+    this.allProducts=[];
+    this.fetchAllProducts();
+  }
+
+  fetchAllProducts(){
+    let obs = this._httpService.getAllProducts();
+    obs.subscribe(data => {
+      if (data['status'] === "good") {
+        this.allProducts = data['content'];
+      }
+      else {
+
+      }
+    })
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'app-update',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _httpService: HttpService
+  ) { }
 
   ngOnInit() {
   }

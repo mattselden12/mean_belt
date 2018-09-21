@@ -8,22 +8,19 @@ export class HttpService {
 
   constructor(private _http: HttpClient) { }
 
-  newAuthor(authorInfo) {
-    return this._http.post('/authors', authorInfo);
+  getAllProducts() {
+    return this._http.get('/api/products');
   }
-  editAuthor(authorInfo, authorid) {
-    return this._http.put(`/authors/${authorid}`, authorInfo);
+  getThisProduct(productid) {
+    return this._http.get(`/api/products/${productid}`);
   }
-  deleteAuthor(authorid) {
-    return this._http.delete(`/authors/${authorid}`);
+  makeNewProduct(productinfo) {
+    return this._http.post('/api/products', productinfo);
   }
-  allAuthors() {
-    return this._http.get('/authors');
+  editThisProduct(productinfo, productid) {
+    return this._http.put(`/api/products/${productid}`, productinfo);
   }
-  thisAuthor(authorid) {
-    return this._http.get(`/authors/${authorid}`);
-  }
-  addQuote(quote, authorid) {
-    return this._http.post(`/api/quotes/${authorid}`, quote);
+  deleteThisProduct(productid) {
+    return this._http.delete(`/api/products/${productid}`);
   }
 }

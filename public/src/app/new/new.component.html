@@ -1,27 +1,26 @@
 <div class="component">
   <h1>New Product</h1>
   <form>
+    {{ newProduct | json }}
     <div class="errors">
-      <p>Products must contain a Name.</p>
-      <p>Products must contain a Qty.</p>
-      <p>Products must contain a Price.</p>
+      <p *ngFor="let error of errors">{{ error }}</p>
     </div>
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Name</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" name="name" [(ngModel)]="newProduct.prodname">
       </div>
     </div>
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Qty</label>
       <div class="col-sm-10">
-        <input type="number" class="form-control">
+        <input type="number" class="form-control" name="quantity" [(ngModel)]="newProduct.prodquantity">
       </div>
     </div>
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Price</label>
       <div class="col-sm-10">
-        <input type="number" class="form-control">
+        <input type="number" class="form-control" name="price" [(ngModel)]="newProduct.prodprice">
       </div>
     </div>
     <button (click)="resetButton()" class="btn btn-secondary">RESET</button>

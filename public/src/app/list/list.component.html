@@ -12,14 +12,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>123456789</td>
-        <td>Coding Dojo Hovering Keyboard</td>
-        <td>439</td>
-        <td>$99.98</td>
+      <tr *ngFor="let prod of allProducts">
+        <td>{{ prod.prodid }}</td>
+        <td>{{ prod.prodname }}</td>
+        <td>{{ prod.prodquantity }}</td>
+        <td>${{ prod.prodprice }}</td>
         <td>
-          <button [routerLink]="['/products/1/edit']" type="button" class="btn btn-edit">Edit</button>
-          <button [routerLink]="['/products/1']" type="button" class="btn btn-details">Details</button>
+          <button [routerLink]="['/products/'+prod.prodid+'/edit']" type="button" class="btn btn-edit">Edit</button>
+          <button [routerLink]="['/products/'+prod.prodid]" type="button" class="btn btn-details">Details</button>
         </td>
       </tr>
     </tbody>
