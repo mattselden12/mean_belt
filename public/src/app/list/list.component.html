@@ -17,7 +17,8 @@
         <td>{{ prod.prodname }}</td>
         <td>{{ prod.prodquantity }}</td>
         <td *ngIf="(prod.prodprice*100)%100==0">${{ prod.prodprice }}.00</td>
-        <td *ngIf="(prod.prodprice*100)%100!=0">${{ prod.prodprice }}</td>
+        <td *ngIf="(prod.prodprice*100)%100!=0&&((prod.prodprice*100)%100)%10==0">${{ prod.prodprice }}0</td>
+        <td *ngIf="(prod.prodprice*100)%100!=0&&((prod.prodprice*100)%100)%10!=0">${{ prod.prodprice }}</td>
         <td>
           <button [routerLink]="['/products/'+prod.prodid+'/edit']" type="button" class="btn btn-edit">Edit</button>
           <button [routerLink]="['/products/'+prod.prodid]" type="button" class="btn btn-details">Details</button>

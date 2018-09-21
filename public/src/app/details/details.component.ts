@@ -43,14 +43,14 @@ export class DetailsComponent implements OnInit {
   }
 
   deleteButton(){
-    if(this.myprod.quantity==0){
+    if (this.myprod.prodquantity != 0){
+      console.log("Why is it hitting me?");
+    }
+    else{
       console.log("clicked DELETE button");
       let obs = this._httpService.deleteThisProduct(this.myprod._id);
       obs.subscribe(data => console.log(data['content']));
       this._router.navigate(['/products']);
-    }
-    else{
-
     }
   }
 }

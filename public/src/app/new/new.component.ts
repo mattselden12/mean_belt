@@ -30,6 +30,8 @@ export class NewComponent implements OnInit {
     };
   }
   createButton(){
+    this.newProduct['prodprice'] = Math.round(this.newProduct['prodprice'] * 100) / 100;
+    console.log(this.newProduct['prodprice']);
     let observable = this._httpService.makeNewProduct(this.newProduct);
     observable.subscribe(data => {
       if (data['status'] === "bad") {
@@ -46,5 +48,4 @@ export class NewComponent implements OnInit {
       }
     })
   }
-
 }

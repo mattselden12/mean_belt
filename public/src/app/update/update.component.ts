@@ -13,6 +13,9 @@ export class UpdateComponent implements OnInit {
   myprod: any;
   origprod: any;
   errors: any[];
+  origprodname;
+  origprodquantity;
+  origprodprice;
 
   constructor(
     private _httpService: HttpService,
@@ -39,17 +42,20 @@ export class UpdateComponent implements OnInit {
           this.allProducts = data['content'];
           for (let product of this.allProducts) {
             if (product.prodid == this.paramid) {
+              this.origprodname = product.prodname;
+              this.origprodquantity = product.prodquantity;
+              this.origprodprice = product.prodprice;
+              // {
+              //   _id: product._id,
+              //   prodid: product.prodid,
+              //   prodname: product.prodname,
+              //   prodquantity: product.prodquantity,
+              //   prodprice: product.prodprice,
+              //   createdAt: product.createdAt,
+              //   updatedAt: product.updatedAt,
+              //   __v: product.__v
+              // };
               this.myprod = product;
-              this.origprod = {
-                _id: product._id,
-                prodid: product.prodid,
-                prodname: product.prodname,
-                prodquantity: product.prodquantity,
-                prodprice: product.prodprice,
-                createdAt: product.createdAt,
-                updatedAt: product.updatedAt,
-                __v: product.__v
-              };
             }
           }
         }
@@ -61,11 +67,13 @@ export class UpdateComponent implements OnInit {
 
   resetButton(){
     console.log("reset");
-    let tempobj = this.origprod;
-    this.myprod = tempobj;
+    this.myprod['prodname']= this.origprodname;
+    this.myprod['prodquantity']= this.origprodquantity;
+    this.myprod['prodprice']= this.origprodprice;
   }
 
   updateButton(){
+    this.myprod['prodprice'] = Math.round(this.myprod['prodprice'] * 100) / 100;
     console.log("clicked UPDATE button");
     let obs = this._httpService.editThisProduct(this.myprod, this.myprod._id);
     obs.subscribe(data => {

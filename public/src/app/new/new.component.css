@@ -53,3 +53,5 @@ p{
     margin: 0;
     margin-left: 2%;
 }
+
+input.ng-dirty.ng-invalid { color: red }
