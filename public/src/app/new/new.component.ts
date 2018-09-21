@@ -41,8 +41,8 @@ export class NewComponent implements OnInit {
         }
       }
       else {
-        console.log(data);
-        this._router.navigate(['/']);
+        console.log(data['content']);
+        this._router.navigate(['/products']);
       }
     })
   }
