@@ -17,7 +17,9 @@
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Price</label>
     <div class="col-sm-10">
-      <input type="text" readonly class="form-control-plaintext" value="${{ myprod.prodprice }}">
+      <input *ngIf="(myprod.prodprice*100)%100==0" type="text" readonly class="form-control-plaintext" value="${{ myprod.prodprice }}.00">
+      <input *ngIf="(myprod.prodprice*100)%100!=0&&((myprod.prodprice*100)%100)%10==0" type="text" readonly class="form-control-plaintext" value="${{ myprod.prodprice }}0">
+      <input *ngIf="(myprod.prodprice*100)%100!=0&&((myprod.prodprice*100)%100)%10!=0" type="text" readonly class="form-control-plaintext" value="${{ myprod.prodprice }}">
     </div>
   </div>
   <button [routerLink]="['/products']" class="btn btn-secondary">BACK</button>

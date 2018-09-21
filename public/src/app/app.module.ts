@@ -9,6 +9,7 @@ import { ListComponent } from './list/list.component';
 import { DetailsComponent } from './details/details.component';
 import { NewComponent } from './new/new.component';
 import { UpdateComponent } from './update/update.component';
+import { CustomMinValidatorDirective } from './custom-min-validator.directive';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { UpdateComponent } from './update/update.component';
     ListComponent,
     DetailsComponent,
     NewComponent,
-    UpdateComponent
+    UpdateComponent,
+    CustomMinValidatorDirective
   ],
   imports: [
     BrowserModule,
